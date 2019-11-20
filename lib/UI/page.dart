@@ -97,7 +97,7 @@ class Page extends StatelessWidget {
                 ),
               ), //Transform
               Expanded(
-                flex: 4,
+                flex: 6,
                 child: new _BodyPageTransform(
                   percentVisible: percentVisible,
                   pageViewModel: pageViewModel,
@@ -166,9 +166,10 @@ class _ImagePageTransform extends StatelessWidget {
       child: new Padding(
         padding: new EdgeInsets.only(
           top: 20.0,
-          bottom: 40.0,
+          bottom: 20.0,
         ),
         child: new Container(
+          width: MediaQuery.of(context).size.width * 0.8,
           child: pageViewModel.mainImage, //Loading main
         ), //Container
       ), //Padding
