@@ -45,26 +45,40 @@ class Page extends StatelessWidget {
       mainAxisAlignment: columnMainAxisAlignment,
       mainAxisSize: MainAxisSize.max,
       children: <Widget>[
-        SafeArea(
-          child: new _TitlePageTransform(
-            percentVisible: percentVisible,
-            pageViewModel: pageViewModel,
-          ),
-        ), //Transform
         Expanded(
-          flex: 6,
+          flex: 65,
           child: new _ImagePageTransform(
             percentVisible: percentVisible,
             pageViewModel: pageViewModel,
           ),
-        ), //Transform
-        Flexible(
-          flex: 2,
-          child: new _BodyPageTransform(
-            percentVisible: percentVisible,
-            pageViewModel: pageViewModel,
+        ),
+        Expanded(
+          flex: 35,
+          child: Column(
+            children: <Widget>[
+              Expanded(
+                flex: 20,
+                child: Align(
+                  alignment: Alignment.center,
+                  child: new _TitlePageTransform(
+                    percentVisible: percentVisible,
+                    pageViewModel: pageViewModel,
+                  ),
+                ),
+              ), //Transform
+              Flexible(
+                flex: 30,
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  child: new _BodyPageTransform(
+                    percentVisible: percentVisible,
+                    pageViewModel: pageViewModel,
+                  ),
+                ),
+              ),
+            ],
           ),
-        ), //Transform
+        )
       ],
     );
   }
@@ -131,9 +145,9 @@ class _BodyPageTransform extends StatelessWidget {
           new Matrix4.translationValues(0.0, 30.0 * (1 - percentVisible), 0.0),
       child: new Padding(
         padding: const EdgeInsets.only(
-          bottom: 75.0,
-          left: 10.0,
-          right: 10.0,
+          bottom: 35.0,
+          left: 15.0,
+          right: 15.0,
         ),
         child: DefaultTextStyle.merge(
           style: pageViewModel.mergedBodyTextStyle,
@@ -168,10 +182,7 @@ class _ImagePageTransform extends StatelessWidget {
           top: 20.0,
           bottom: 20.0,
         ),
-        child: new Container(
-          width: MediaQuery.of(context).size.width * 0.8,
-          child: pageViewModel.mainImage, //Loading main
-        ), //Container
+        child: pageViewModel.mainImage, //Container
       ), //Padding
     );
   }
@@ -197,10 +208,10 @@ class _TitlePageTransform extends StatelessWidget {
           new Matrix4.translationValues(0.0, 30.0 * (1 - percentVisible), 0.0),
       child: new Padding(
         padding: new EdgeInsets.only(
-          top: 5.0,
-          bottom: 5.0,
-          left: 10.0,
-          right: 10.0,
+          top: 10.0,
+          bottom: 10.0,
+          left: 15.0,
+          right: 15.0,
         ),
         child: DefaultTextStyle.merge(
           style: pageViewModel.mergedTitleTextStyle,
