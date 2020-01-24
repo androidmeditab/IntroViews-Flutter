@@ -46,14 +46,14 @@ class Page extends StatelessWidget {
       mainAxisSize: MainAxisSize.max,
       children: <Widget>[
         Expanded(
-          flex: 65,
+          flex: 60,
           child: new _ImagePageTransform(
             percentVisible: percentVisible,
             pageViewModel: pageViewModel,
           ),
         ),
         Expanded(
-          flex: 35,
+          flex: 40,
           child: Column(
             children: <Widget>[
               Expanded(
@@ -145,7 +145,7 @@ class _BodyPageTransform extends StatelessWidget {
           new Matrix4.translationValues(0.0, 30.0 * (1 - percentVisible), 0.0),
       child: new Padding(
         padding: const EdgeInsets.only(
-          bottom: 35.0,
+          bottom: 30.0,
           left: 15.0,
           right: 15.0,
         ),
